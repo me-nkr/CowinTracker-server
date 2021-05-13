@@ -20,4 +20,6 @@ Api call to cowin public api returns 403 Forbidden, even though it's returning 2
 ### Status 
 Unresolved
 ### Reason 
+Possible reasons:
++ Cowin API only takes calls from indian IPs and Glitch and openshift ain't having indian IPs
 ### Solution
