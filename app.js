@@ -46,9 +46,9 @@ const sendData = (operationType, operationOn, data) => {
 const deleteSession = centersObj => {
     Object.keys(centersObj).forEach(center_id => {
         centers[center_id].sessions.forEach((session, index) => {
-            const bool = new Date(new Date((([date, month, year]) => `${month}/${date}/${year}`)(session.date.split('-'))).setHours(13)) < new Date() ;
 
-            if (new Date(new Date((([date, month, year]) => `${month}/${date}/${year}`)(session.date.split('-'))).setHours(13)) < new Date()) {
+            if (new Date(new Date((([date, month, year]) => `${month}/${date}/${year}`)(session.date.split('-'))).setHours(23, 59, 59)) < new Date()) {
+
                 centers[center_id].sessions.splice(index, 1) ;
 
                 // delete
@@ -150,6 +150,7 @@ const apiCall = (districtId, date) => {
     .then(result => handleResponse(result))
     .catch(error => console.log(error.message))
 } ;
+// apiCall(298, date())
 
 districts.forEach((district, index) => {
     setTimeout(() => {
