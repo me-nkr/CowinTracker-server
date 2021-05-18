@@ -116,7 +116,7 @@ const updateData = (centersObj, data) => {
     }
     else updateSessions(centersObj, data) ;
 }
-
+// handle api response
 const handleResponse = result => {
     result.centers.forEach(center => {
         const data = (({
@@ -153,7 +153,9 @@ const handleResponse = result => {
         updateData(centers, data) ;
     })
 }
+// handle api response
 
+// fetch data from cowin api
 const apiCall = (districtId, date) => {
     got(`https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict?district_id=${districtId}&date=${date}`)
     .then(response => JSON.parse(response.body))
@@ -161,6 +163,8 @@ const apiCall = (districtId, date) => {
     .catch(error => console.log(error.message))
 } ;
 // apiCall(298, date())
+
+// fetch data from cowin api
 
 districts.forEach((district, index) => {
     setTimeout(() => {

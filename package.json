@@ -4,13 +4,16 @@
   "description": "Track and Notify open slots on coWin portal",
   "main": "app.js",
   "scripts": {
-	  "start": "node app.js",
-	"test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node src/app.js",
+    "test": "jest"
   },
   "author": "me.nkr",
   "license": "ISC",
   "dependencies": {
     "got": "^11.8.2",
     "ws": "^7.4.5"
+  },
+  "devDependencies": {
+    "jest": "^26.6.3"
   }
 }
