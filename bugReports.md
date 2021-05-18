@@ -23,3 +23,10 @@ Unresolved
 Possible reasons:
 + Cowin API only takes calls from indian IPs and Glitch and openshift ain't having indian IPs
 ### Solution
+Hosted on AWS LightSail
+
+## CT003
+### Description
+Loading the client is fine, But reloading the client side won't connect to the websocket again.
+### Solution
+Running websocket server as a system process on aws lightsail seems to not reproduce the problem

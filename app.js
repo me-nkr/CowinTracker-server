@@ -1,3 +1,10 @@
+#!/usr/bin/env node
+
+/**
+ * CHANGES
+ * + made server script into executable
+ */
+
 const got = require('got') ;
 const ws = require('ws') ;
 const clients = new Set() ;
