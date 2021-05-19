@@ -38,10 +38,10 @@ const districts =[
     { id: 308, name: 'Palakkad' }
 ] ;
 
-const date = () => {
-    const [date,month,year ] = new Date().toLocaleString('en-US',{timeZone: 'Asia/Kolkata'}).split(',')[0].split('/')
-    return `${month}/${date}/${year}` ;
-}
+//const date = () => {
+//    const [date,month,year ] = new Date().toLocaleString('en-US',{timeZone: 'Asia/Kolkata'}).split(',')[0].split('/')
+//    return `${month}/${date}/${year}` ;
+//}
 
 const sendData = (operationType, operationOn, data) => {
     for (let client of clients) client.send(
@@ -57,7 +57,7 @@ const deleteSession = centersObj => {
     Object.keys(centersObj).forEach(center_id => {
         centers[center_id].sessions.forEach((session, index) => {
 
-            if (new Date(new Date((([date, month, year]) => `${month}/${date}/${year}`)(session.date.split('-'))).setHours(23, 59, 59)) < new Date(new Date().toLocaleString('en-IN',{timeZone: 'Asia/Kolkata'}))) {
+            // if (new Date(new Date((([date, month, year]) => `${month}/${date}/${year}`)(session.date.split('-'))).setHours(23, 59, 59)) < new Date(new Date().toLocaleString('en-IN',{timeZone: 'Asia/Kolkata'}))) {
 
                 centers[center_id].sessions.splice(index, 1) ;
 
