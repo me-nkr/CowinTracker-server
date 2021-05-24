@@ -117,51 +117,52 @@ const updateData = (centersObj, data) => {
     else updateSessions(centersObj, data) ;
 }
 // handle api response
-const handleResponse = result => {
-    result.centers.forEach(center => {
-        const data = (({
-            center_id,
-            name,
-            address,
-            district_name,
-            state_name,
-            pincode,
-            fee_type,
-            sessions
-        }) => {
-            return {
-                center_id,
-                name,
-                address,
-                district_name,
-                state_name,
-                pincode,
-                fee_type,
-                sessions
-            }
-        })(center)  ;
-        data.sessions = data.sessions.map(session => {
-            return {
-                session_id: session.session_id,
-                date: session.date,
-                available_capacity: session.available_capacity,
-                min_age_limit: session.min_age_limit,
-                vaccine: session.vaccine
-            } ;
-        })
-        deleteSession(centers) ;
-        updateData(centers, data) ;
-    })
-}
+// const handleResponse = result => {
+//     result.centers.forEach(center => {
+//         const data = (({
+//             center_id,
+//             name,
+//             address,
+//             district_name,
+//             state_name,
+//             pincode,
+//             fee_type,
+//             sessions
+//         }) => {
+//             return {
+//                 center_id,
+//                 name,
+//                 address,
+//                 district_name,
+//                 state_name,
+//                 pincode,
+//                 fee_type,
+//                 sessions
+//             }
+//         })(center)  ;
+//         data.sessions = data.sessions.map(session => {
+//             return {
+//                 session_id: session.session_id,
+//                 date: session.date,
+//                 available_capacity_dose1: session.available_capacity,
+//                 available_capacity_dose2: session.available_capacity,
+//                 min_age_limit: session.min_age_limit,
+//                 vaccine: session.vaccine
+//             } ;
+//         })
+//         deleteSession(centers) ;
+//         updateData(centers, data) ;
+//     })
+// }
 // handle api response
 
 // fetch data from cowin api
-const apiCall = (districtId, date) => {
-    got(`https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict?district_id=${districtId}&date=${date}`)
-    .then(response => JSON.parse(response.body))
-    .then(result => handleResponse(result))
-    .catch(error => console.log(error.message))
-} ;
+// const apiCall = (districtId, date) => {
+//     got(`https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict?district_id=${districtId}&date=${date}`)
+//     .then(response => JSON.parse(response.body))
+//     .then(result => handleResponse(result))
+//     .catch(error => console.log(error.message))
+// } ;
 // apiCall(298, date())
 
 // fetch data from cowin api
